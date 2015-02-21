@@ -1,0 +1,10 @@
+/home-monitor
+home-monitor.xml
+*.o
+
+lib/.installed
+lib/.staging/*
+lib/*/.installed-*
+lib/*/*.tar.gz
+
+lib/*/*/*

@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<settings>
+  <logging>
+    <level>INFO</level>
+    <pattern>%d{dd.MM.yyyy HH:mm:ss.SSS} %-5p [%c] %m%n</pattern>
+  </logging>
+  <files>
+    <alwayson>/etc/opt/home-monitor/alwayson</alwayson>
+  </files>
+  <network>
+    <interface>eth0</interface>
+  </network>
+  <ping>
+    <interval>6</interval>
+    <timeout>2</timeout>
+  </ping>
+  <server>
+    <name>My Server</name>
+    <mac>aa:bb:cc:dd:ee:ff</mac>
+    <ip>192.168.1.1</ip>
+    <username>foo</username>
+    <password>bar</password>
+    <timeout>60</timeout>
+  </server>
+  <machines>
+    <machine>
+      <name>My Machine</name>
+      <mac>ff:ee:dd:cc:bb:aa</mac>
+      <ip>192.168.1.2</ip>
+      <timeout>300</timeout>
+    </machine>
+  </machines>
+</settings>

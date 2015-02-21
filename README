@@ -1,0 +1,23 @@
+Home Monitor
+============
+Home Monitor is a tool design to run on a Raspberry Pi which will constantly
+monitor a configurable list of boxes (based on their IP addresses) to see if
+they are online or offline. If all boxes are offline the configurable server
+is automatically turned off through SSH. If any one of the boxes is online the
+server is automatically turned on using Wake-on-LAN.
+
+How to build
+------------
+First you need to download all the necessary dependencies:
+  # sudo apt-get install libssh-dev libpoco-dev liblog4cxx10-dev libpcap-dev
+
+Then you need to build and install additional dependencies:
+  # cd lib
+  # make
+
+Then you can finally build home-monitor
+  # make
+
+And install it
+  # sudo make install
+

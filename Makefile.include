@@ -1,0 +1,20 @@
+RETRIEVE_TOOL = curl
+ARCHIVE_TOOL = tar
+CONFIGURE_TOOL = ./configure
+
+CC = gcc
+CXX = g++
+INSTALL = install
+
+RETRIEVE_TOOL_FLAGS = -Ls --create-dirs -f -O
+ARCHIVE_TOOL_FLAGS = --strip-components=1 -xf
+CONFIGURE_FLAGS = --prefix=$(STAGING_DIR) --enable-shared --enable-static
+
+MAKEFILE_PATH = $(abspath $(lastword $(MAKEFILE_LIST)))
+CWD = $(patsubst %/,%,$(dir $(MAKEFILE_PATH)))
+
+PREFIX = /usr/local
+
+STAGING_DIR = $(CWD)/lib/.staging
+STAGING_LIBDIR = $(STAGING_DIR)/lib
+STAGING_INCLUDEDIR = $(STAGING_DIR)/include
