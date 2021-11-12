@@ -1,6 +1,6 @@
 include Makefile.include
 
-CFLAGS = -Wall -g
+CFLAGS = -g -Werror -Wno-error=deprecated-declarations -Wall -Wextra -Wconversion -Wpedantic -Wno-psabi
 LDFLAGS = -L$(STAGING_LIBDIR) -Wl,-rpath,$(STAGING_LIBDIR)
 
 INCLUDES = -Isrc -I$(STAGING_INCLUDEDIR)
@@ -14,7 +14,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 MAIN = home-monitor
 
-.PHONY: clean
+.PHONY: all clean
 
 all: $(MAIN)
 	@echo $< successfully built.
