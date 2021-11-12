@@ -38,7 +38,7 @@ class Configuration
   public:
     Configuration()
      : m_loggingLevel("INFO"),
-       m_loggingPattern("\%d{dd.MM.yyyy HH:mm:ss.SSS} \%-5p [\%c] \%m\%n"),
+       m_loggingPattern("%d{dd.MM.yyyy HH:mm:ss.SSS} %-5p [%c] %m%n"),
        m_networkInterface(),
        m_pingTimeout(10),
        m_pingInterval(30)
