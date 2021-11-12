@@ -8,8 +8,10 @@ server is automatically turned on using Wake-on-LAN.
 
 How to build
 ------------
-First you need to download all the necessary dependencies:
-  # sudo apt-get install libssh-dev libpoco-dev liblog4cxx10-dev libpcap-dev
+First you need to install all necessary build tools:
+  # sudo apt-get install build-essential autoconf libtool
+Then you need to install all the necessary dependencies:
+  # sudo apt-get install libssh-dev libpoco-dev liblog4cxx-dev libpcap-dev
 
 Then you need to build and install additional dependencies:
   # cd lib
