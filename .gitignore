@@ -2,6 +2,7 @@
 home-monitor.xml
 *.o
 
+build/
 lib/.installed
 lib/.staging/*
 lib/*/.installed-*

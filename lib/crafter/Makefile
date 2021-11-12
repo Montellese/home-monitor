@@ -1,4 +1,4 @@
-include ../../Makefile.include
+include ../Makefile.include
 
 LIBNAME = crafter
 VERSION = 0.3

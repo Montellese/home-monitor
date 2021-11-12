@@ -19,8 +19,11 @@ Then you need to build and install additional dependencies:
   # sudo make install
 
 Then you can finally build home-monitor
-  # make
+  # mkdir -p build
+  # cd build
+  # cmake ..
+  # cmake --build .
 
 And install it
-  # sudo make install
+  # sudo cmake --install .
 
