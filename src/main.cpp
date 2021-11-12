@@ -32,6 +32,7 @@
 
 #include <signal.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "Configuration.h"
 #include "Networking.h"
