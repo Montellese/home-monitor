@@ -1,34 +1,39 @@
 include ../../Makefile.include
 
 LIBNAME = crafter
-VERSION = 0.2
-SOURCE = $(LIBNAME)-$(VERSION)
+VERSION = 0.3
+PKG = $(LIBNAME)-$(VERSION)
+SOURCE = $(PKG)/libcrafter
 SUFFIX = tar.gz
-ARCHIVE = $(SOURCE).$(SUFFIX)
-BASE_URL = https://libcrafter.googlecode.com/files
+ARCHIVE = version-$(VERSION).$(SUFFIX)
+BASE_URL = https://github.com/pellegre/libcrafter/archive/refs/tags/
 
 LIB = $(SOURCE)/.libs/lib$(LIBNAME).so
 
-all: .installed-$(SOURCE)
+.PHONY: all clean distclean install
+
+all: $(LIB)
 
 $(ARCHIVE):
 	$(RETRIEVE_TOOL) $(RETRIEVE_TOOL_FLAGS) $(BASE_URL)/$@
 
-$(SOURCE): $(ARCHIVE)
+$(PKG): $(ARCHIVE)
 	rm -rf $@/*; mkdir -p $@
 	cd $@; $(ARCHIVE_TOOL) $(ARCHIVE_TOOL_FLAGS) ../$<
-	cd $@; $(CONFIGURE_TOOL) $(CONFIGURE_FLAGS)
+	cd $(SOURCE); ./autogen.sh
 
-$(LIB): $(SOURCE)
-	$(MAKE) -C $<
+$(LIB): $(PKG)
+	$(MAKE) -C $(SOURCE)
 
-.installed-$(SOURCE): $(LIB)
+.installed-$(PKG): $(LIB)
 	$(MAKE) -C $(SOURCE) install
 	touch $@
 
+install: .installed-$(PKG)
+
 clean:
 	@$(MAKE) -C $(SOURCE) clean
-	@rm -f .installed-$(SOURCE)
+	@rm -f .installed-$(PKG)
 
 distclean:
-	@rm -rf $(SOURCE) .installed-$(SOURCE)
+	@rm -rf $(PKG) .installed-$(PKG)

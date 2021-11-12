@@ -14,6 +14,7 @@ First you need to download all the necessary dependencies:
 Then you need to build and install additional dependencies:
   # cd lib
   # make
+  # sudo make install
 
 Then you can finally build home-monitor
   # make

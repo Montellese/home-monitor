@@ -2,21 +2,19 @@ include ../Makefile.include
 
 DEPENDS += crafter
 
-.PHONY: $(DEPENDS) clean distclean
+.PHONY: $(DEPENDS) all clean distclean install
 
-all: .installed
-
-.installed: $(DEPENDS)
-	touch $@
+all: $(DEPENDS)
 
 $(DEPENDS):
 	$(MAKE) -C $@
 
+install: $(DEPENDS)
+	$(MAKE) -C $< install
+
 clean:
 	for l in $(DEPENDS); do $(MAKE) -C $$l clean; done
-	rm -f .installed
 
 distclean:
 	for l in $(DEPENDS); do $(MAKE) -C $$l distclean; done
-	rm -f .installed
 
