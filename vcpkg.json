@@ -1,0 +1,12 @@
+{
+    "name": "home-monitor",
+    "version-string": "0.1.0",
+    "dependencies": [
+        "libcrafter",
+        "libssh",
+        "libpcap",
+        "log4cxx",
+        "poco",
+        "pthread"
+    ]
+  }

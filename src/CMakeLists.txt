@@ -3,10 +3,10 @@ cmake_minimum_required(VERSION 3.10)
 project(home-monitor)
 
 # find external dependencies
+find_package(log4cxx REQUIRED)
 find_package(Poco REQUIRED Foundation Util XML)
 find_package(Threads REQUIRED)
 pkg_search_module(libcrafter REQUIRED IMPORTED_TARGET libcrafter crafter)
-pkg_search_module(liblog4cxx REQUIRED IMPORTED_TARGET liblog4cxx log4cxx)
 pkg_search_module(libpcap REQUIRED IMPORTED_TARGET libpcap pcap)
 pkg_search_module(libssh REQUIRED IMPORTED_TARGET libssh ssh)
 
@@ -21,14 +21,16 @@ set(MAIN_SRC main.cpp)
 # internal library target
 add_library(${PROJECT_NAME}_lib STATIC ${LIB_SRC})
 target_link_libraries(${PROJECT_NAME}_lib
+    PUBLIC
+      log4cxx
     PRIVATE
       PkgConfig::libcrafter
-      PkgConfig::liblog4cxx
       PkgConfig::libpcap
       PkgConfig::libssh
       Poco::Foundation
       Poco::Util
       Poco::XML
+      resolv
       Threads::Threads
 )
 
