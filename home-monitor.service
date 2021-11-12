@@ -1,0 +1,11 @@
+[Unit]
+Description=Home Monitor
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart=/usr/bin/home-monitor
+User=root
+
+[Install]
+WantedBy=multi-user.target

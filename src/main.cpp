@@ -40,7 +40,7 @@
 #define APPLICATION             "home-monitor"
 
 #define LOGGING_PATH            "/var/log/" APPLICATION
-#define CONFIGURATION_PATH      "/etc/opt/" APPLICATION
+#define CONFIGURATION_PATH      "/etc/" APPLICATION
 #define CONFIGURATION_FILENAME  APPLICATION ".xml"
 
 #define CHANGE_TIMEOUT          120

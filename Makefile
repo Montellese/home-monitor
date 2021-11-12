@@ -31,11 +31,11 @@ lib/.installed:
 
 install: all
 	$(INSTALL) -c $(MAIN) $(PREFIX)/bin/
-	mkdir -p /etc/opt/$(MAIN)
-	$(INSTALL) -c $(MAIN).xml.example /etc/opt/$(MAIN)/
+	mkdir -p /etc/$(MAIN)
+	$(INSTALL) -c $(MAIN).xml.example /etc/$(MAIN)/
 	$(INSTALL) -c $(STAGING_LIBDIR)/libcrafter.so* $(PREFIX)/lib/
-	$(INSTALL) -c extra/$(MAIN) /etc/init.d/
-	update-rc.d home-monitor defaults 
+	$(INSTALL) -c home-monitor.service /etc/systemd/system/
+	systemctl daemon-reload
 
 clean:
 	$(RM) src/*.o *~ src/*~ $(MAIN)
