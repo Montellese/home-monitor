@@ -48,9 +48,9 @@ class Machine
     const std::string& GetIpAddress() const { return m_ipAddress; }
     const std::string& GetUsername() const { return m_username; }
     const std::string& GetPassword() const { return m_password; }
-    const uint16_t GetTimeout() const { return m_timeout; }
+    uint16_t GetTimeout() const { return m_timeout; }
 
-    const bool IsOnline() const { return m_online; }
+    bool IsOnline() const { return m_online; }
     void SetOnline(bool online)
     {
       m_online = online;
